@@ -1,0 +1,6 @@
+pyccel
+scipy
+mpi4py
+tblib
+pytest
+coverage
