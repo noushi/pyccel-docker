@@ -1,4 +1,6 @@
-pyccel
+## too old
+#pyccel
+git+https://github.com/pyccel/pyccel/
 scipy
 mpi4py
 tblib
