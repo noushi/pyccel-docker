@@ -1,0 +1,9 @@
+#!/bin/sh
+
+## requires
+# adduser  --disabled-password   --gecos "" tester
+
+
+git clone https://github.com/pyccel/pyccel
+cd pyccel
+./tests/run_tests_py3.sh 
