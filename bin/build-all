@@ -1,0 +1,13 @@
+#!/bin/bash
+
+get_tags() {
+    curl -s -H "Accept: application/vnd.github.v3+json"   https://api.github.com/repos/pyccel/pyccel/releases | jq .[].tag_name
+}
+
+do_build_all() {
+    for tag in $(get_tags) ; do
+	docker build -t pyccel/pyccel:$tag --build-arg=__ARG_PYCCEL_TAG=$tag .
+    done
+}
+
+do_build_all

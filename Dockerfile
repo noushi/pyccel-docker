@@ -20,3 +20,7 @@ ENV LC_CTYPE=en_US.UTF-8 \
     LC_ALL=C.UTF-8
 
 RUN pip3 install -r /opt/requirements.txt
+
+ARG __ARG_PYCCEL_TAG
+
+RUN pip3 install git+https://github.com/pyccel/pyccel/@$__ARG_PYCCEL_TAG
