@@ -3,7 +3,7 @@
 REGISTRIES="docker.io/pyccel ghcr.io/pyccel"
 
 get_tags() {
-    curl -s -H "Accept: application/vnd.github.v3+json"   https://api.github.com/repos/pyccel/pyccel/releases | jq .[].tag_name | tr -d '"'
+    curl -s -H "Accept: application/vnd.github.v3+json"   https://api.github.com/repos/pyccel/pyccel/releases | jq .[].tag_name | tr -d '"' | tac
 }
 
 do_push_all() {
