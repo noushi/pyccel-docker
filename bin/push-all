@@ -9,8 +9,8 @@ get_tags() {
 do_push_all() {
     for tag in $(get_tags) ; do
 	for reg in $REGISTRIES ; do
-	    docker tag pyccel/pyccel:$tag $reg/pyccel/pyccel:$tag
-	    docker push $reg/pyccel/pyccel:$tag
+	    docker tag pyccel/pyccel:$tag $reg/pyccel:$tag
+	    docker push $reg/pyccel:$tag
 	done
     done
 }
