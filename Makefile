@@ -10,6 +10,17 @@ REGISTRIES=docker.io/pyccel ghcr.io/pyccel
 # for compatibility
 CTR_RUNTIME=docker
 
+prepare:
+	sudo apt-get install -y jq git
+
+full-cycle: build-all push-all
+
+build-all:
+	bin/build-all
+
+push-all:
+	bin/push-all
+
 build: clean
 	$(CTR_RUNTIME) build -t $(TARGET) .
 
