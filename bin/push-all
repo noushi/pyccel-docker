@@ -1,0 +1,18 @@
+#!/bin/bash
+
+REGISTRIES="docker.io/pyccel ghcr.io/pyccel"
+
+get_tags() {
+    curl -s -H "Accept: application/vnd.github.v3+json"   https://api.github.com/repos/pyccel/pyccel/releases | jq .[].tag_name | tr -d '"'
+}
+
+do_push_all() {
+    for tag in $(get_tags) ; do
+	for reg in $REGISTRIES ; do
+	    docker tag pyccel/pyccel:$tag $reg/pyccel/pyccel:$tag
+	    docker push $reg/pyccel/pyccel:$tag
+	done
+    done
+}
+
+do_push_all
