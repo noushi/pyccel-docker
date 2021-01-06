@@ -3,6 +3,7 @@ FROM ubuntu
 
 RUN  export DEBIAN_FRONTEND=noninteractive; \
      apt-get update && \
+     apt-get upgrade -y && \
      apt-get install -y gcc  && \
      apt-get install -y gfortran  && \
      apt-get install -y libblas-dev liblapack-dev  && \
